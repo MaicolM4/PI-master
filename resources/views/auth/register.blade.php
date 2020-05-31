@@ -17,9 +17,9 @@
                                 <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
 
                                 @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('name') }}</strong>
+                                </span>
                                 @endif
                             </div>
                         </div>
@@ -30,9 +30,9 @@
                                 <input id="identification" type="text" class="form-control" name="identification" value="{{ old('identification') }}" required autofocus>
 
                                 @if ($errors->has('identification'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('identification') }}</strong>
-                                    </span>
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('identification') }}</strong>
+                                </span>
                                 @endif
                             </div>
                         </div>
@@ -44,9 +44,9 @@
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
 
                                 @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
                                 @endif
                             </div>
                         </div>
@@ -58,9 +58,9 @@
                                 <input id="user" type="text" class="form-control" name="user" value="{{ old('user') }}" required autofocus>
 
                                 @if ($errors->has('user'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('user') }}</strong>
-                                    </span>
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('user') }}</strong>
+                                </span>
                                 @endif
                             </div>
                         </div>
@@ -72,9 +72,9 @@
                                 <input id="password" type="password" class="form-control" name="password" required>
 
                                 @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('password') }}</strong>
+                                </span>
                                 @endif
                             </div>
                         </div>

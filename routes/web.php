@@ -32,4 +32,5 @@ Route::get('/', function () {
 
 
 Route::resource('prueba', 'PruebaController');
+Route::resource('roles', 'RolesController');
 

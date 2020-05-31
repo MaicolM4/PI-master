@@ -12,4 +12,10 @@ class Role extends Model
             ->belongsToMany('App\User')
             ->withTimestamps();
     }
+
+    protected $fillable = [
+        'name','description',
+    ];
+
+
 }
