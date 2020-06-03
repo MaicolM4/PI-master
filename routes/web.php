@@ -18,9 +18,7 @@ use Illuminate\Support\Facades\Auth;
 //});
 Route::get('ticket/{placa}/{id}/{valor}','TicketController@generarTicket')->name('ticket');
 Route::resource('ticket','TicketController');
-Route::resource('ingresoV', 'Ingreso_vehiculoController');
 
-Route::resource('vehiculo', 'VehiculoController');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -31,6 +29,8 @@ Route::get('/', function () {
 
 
 
-Route::resource('prueba', 'PruebaController');
+Route::resource('user', 'UserController');
+
+
 Route::resource('roles', 'RolesController');
 

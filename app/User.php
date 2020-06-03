@@ -5,9 +5,28 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+
 class User extends Authenticatable
 {
 
+    use Notifiable;
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name', 'identification', 'email', 'user', 'password','estado',
+    ];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
     public function authorizeRoles($roles)
     {
         if ($this->hasAnyRole($roles)) {
@@ -43,24 +62,4 @@ class User extends Authenticatable
             ->belongsToMany('App\Role')
             ->withTimestamps();
     }
-
-    use Notifiable;
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'name','identification', 'email','user', 'password',
-    ];
-
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
 }

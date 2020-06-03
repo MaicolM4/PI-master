@@ -2,9 +2,12 @@
 @section ('contenido')
 <div class="row">
     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-        <h3>Registrar Usuario
-            @include('Prueba.search')
+        <h3>Listado de Usuarios
+        <a href="/register">
+                <button class="btn btn-success">Nuevo</button></a></h3>
+            
     </div>
+    @include('Admin.search')
 </div>
 <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -16,22 +19,23 @@
                     <th>No. Identificación</th>
                     <th>Correo</th>
                     <th>Usuario</th>
+                    <th>Opciones</th>
                 </thead>
-                @foreach ($prueba as $prueba)
+                @foreach ($admin as $admin)
                 <tr>
 
-                    <td>{{ $prueba->id}}</td>
-                    <td>{{ $prueba->name}}</td>
-                    <td>{{ $prueba->identification}}</td>
-                    <td>{{ $prueba->email}}</td>
-                    <td>{{ $prueba->user}}</td>
+                    <td>{{ $admin->id}}</td>
+                    <td>{{ $admin->name}}</td>
+                    <td>{{ $admin->identification}}</td>
+                    <td>{{ $admin->email}}</td>
+                    <td>{{ $admin->user}}</td>
                 
                 <td>
-                    <a href="{{URL::action('PruebaController@edit',$prueba->id)}}">
+                    <a href="{{URL::action('AdminController@edit',$admin->id)}}">
                         <button class="btn btn-info">Editar</button></a>
-                    <a href="" data-target="#modal-delete-{{$prueba->id}}" data-toggle="modal">
+                    <a href="" data-target="#modal-delete-{{$admin->id}}" data-toggle="modal">
                         <button class="btn btn-danger">Eliminar</button></a>
-                    @include('Prueba.modal')
+                    @include('Admin.modal')
                 </td>
                 </tr>
                 @endforeach

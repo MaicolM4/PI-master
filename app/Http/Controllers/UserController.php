@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Role;
+use App\User;
 use Illuminate\Support\Facades\Redirect;
-use App\Http\Requests\RolesFormRequest;
+use App\Http\Requests\UserFormRequest;
 use App\Http\Requests;
-use Illuminate\Support\Facades\DB;
+use DB;
 
-class RolesController extends Controller
+class UserController extends Controller
 {
     public function __construct()
     {
@@ -23,15 +23,16 @@ class RolesController extends Controller
      */
     public function index(Request $request)
     {
-   // $request->user()->authorizeRoles('admin');
+    //$request->user()->authorizeRoles('adminin');
         if ($request)
         {
             $query=trim($request->get('searchText'));
-            $roles=DB::table('roles')
-            ->where('description','LIKE','%'.$query.'%')
+            $usuarios=DB::table('users')
+            ->where('name','LIKE','%'.$query.'%')
+            //->where('estado','=','Activo')
             ->orderBy('id','desc')
             ->paginate(10);
-            return view('Role.index',["roles"=>$roles,"searchText"=>$query]);
+            return view('User.index',["usuarios"=>$usuarios,"searchText"=>$query]);
         }
     }
 
@@ -42,9 +43,9 @@ class RolesController extends Controller
      */
     public function create(Request $request)
     {
-       // $request->user()->authorizeRoles('admin');
-
-        return view("Role.create");
+        //$request->user()->authorizeRoles('admin');
+        
+        return view("User.create");
     }
 
     /**
@@ -53,15 +54,17 @@ class RolesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(RolesFormRequest $request)
+    public function store(UserFormRequest $request)
     {
-        $role=new Role;
-        $role->name=$request->get('name');
-        $role->description=$request->get('description');
-
-        $role->save();
-
-        return Redirect::to('role');
+      $usuario=new User;
+      $usuario->name=$request->get('name');
+      $usuario->identification=$request->get('identification');
+      $usuario->email=$request->get('email');
+      $usuario->user=$request->get('user');
+      $usuario->password=bcrypt($request->get('password'));
+      $usuario->estado=$request->get('estado');
+      $usuario->save();
+      return Redirect::to('user');
     }
 
     /**
@@ -83,9 +86,9 @@ class RolesController extends Controller
      */
     public function edit(Request $request, $id)
     {
-      //  $request->user()->authorizeRoles('admin');
+        //$request->user()->authorizeRoles('admin');
 
-        return view("Role.edit",["role"=>Role::findOrFail($id)]);
+        return view("User.edit",["usuario"=>User::findOrFail($id)]);
     }
 
     /**
@@ -95,15 +98,15 @@ class RolesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(RolesFormRequest $request, $id)
+    public function update(UserFormRequest $request, $id)
     {
-        $role= Role::findOrFail($id);
-        $role->name=$request->get('name');
-        $role->description=$request->get('description');
-
-        $role->update();
-
-        return Redirect::to('role');
+        $usuario=User::findOrFail($id);
+        $usuario->name=$request->get('name');
+        $usuario->email=$request->get('email');
+        $usuario->password=bcrypt($request->get('password'));
+        $usuario->estado=$request->get('estado');
+        $usuario->update();
+        return Redirect::to('user');
     }
 
     /**
@@ -116,9 +119,8 @@ class RolesController extends Controller
     {
         $request->user()->authorizeRoles('admin');
 
-        $role=Role::findOrFail($id);
-        $role->delete();
-
-        return Redirect::to('role');
+        $usuario=User::findOrFail($id);
+        $usuario->delete();
+        return Redirect::to('user');
     }
 }
