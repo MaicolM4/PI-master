@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Role;
+
 use Illuminate\Support\Facades\Redirect;
+
 use App\Http\Requests\RolesFormRequest;
 use App\Http\Requests;
 use Illuminate\Support\Facades\DB;
@@ -24,7 +26,8 @@ class RolesController extends Controller
      */
     public function index(Request $request)
     {
-        // $request->user()->authorizeRoles('admin');
+
+        $request->user()->authorizeRoles('admin');
         if ($request) {
             $query = trim($request->get('searchText'));
             $roles = DB::table('roles')
@@ -40,11 +43,12 @@ class RolesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-       // $request->user()->authorizeRoles('admin');
+  
+        // $request->user()->authorizeRoles('admin');
 
-        return view("Roles.create");
+        return view('Roles.create');
     }
 
     /**

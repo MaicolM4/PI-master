@@ -294,9 +294,10 @@ desired effect
         <ul class="sidebar-menu" data-widget="tree">
           <li class="header">HEADER</li>
           <!-- Optionally, you can add icons to the links -->
-          <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Administrar Usuarios</span></a></li>
+          <li class="active"><a href="{{url('user')}}"><i class="fa fa-link"></i> <span>Administrar Usuarios</span></a></li>
           <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Administrar Tarifas</span></a></li>
           <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Consultar Reportes </span></a></li>
+          <li class="active"><a  href="{{url('roles')}}"><i class="fa fa-link"></i> <span>Roles </span></a></li>
 
         </ul>
         <!-- /.sidebar-menu -->

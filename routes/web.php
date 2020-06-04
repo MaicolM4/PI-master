@@ -2,6 +2,7 @@
 
 use illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,20 +13,16 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 //Route::get('/', function () {
-//  return view('welcome');
+//  eturn view('welcome');
 //});
-
-
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
-
 Route::get('/', function () {
     return view('auth/login');
 });
-
-
 Route::resource('user', 'UserController');
+Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('roles', 'RolesController');
+
+Route::post('/roles/{role}', 'RolesController@index')->name('roles.index');

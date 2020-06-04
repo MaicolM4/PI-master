@@ -21,7 +21,7 @@ class Roles
         }else{
             foreach($roles as $rol){
                 if($rol->name == 'admin'){
-                    return redirect()->route('');
+                    return redirect()->route('roles.index');
                 }
             }
         }
