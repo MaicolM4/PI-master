@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
-
+use illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | API Routes

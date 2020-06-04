@@ -8,7 +8,7 @@ use App\User;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\UserFormRequest;
 use App\Http\Requests;
-use DB;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {

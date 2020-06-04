@@ -16,6 +16,7 @@ class RolesController extends Controller
     {
         $this->middleware('auth');
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -23,15 +24,14 @@ class RolesController extends Controller
      */
     public function index(Request $request)
     {
-   // $request->user()->authorizeRoles('admin');
-        if ($request)
-        {
-            $query=trim($request->get('searchText'));
-            $roles=DB::table('roles')
-            ->where('description','LIKE','%'.$query.'%')
-            ->orderBy('id','desc')
-            ->paginate(10);
-            return view('Role.index',["roles"=>$roles,"searchText"=>$query]);
+        // $request->user()->authorizeRoles('admin');
+        if ($request) {
+            $query = trim($request->get('searchText'));
+            $roles = DB::table('roles')
+                ->where('description', 'LIKE', '%' . $query . '%')
+                ->orderBy('id', 'desc')
+                ->paginate(10);
+            return view('roles.index', ["roles" => $roles, "searchText" => $query]);
         }
     }
 
@@ -44,7 +44,7 @@ class RolesController extends Controller
     {
        // $request->user()->authorizeRoles('admin');
 
-        return view("Role.create");
+        return view("Roles.create");
     }
 
     /**
@@ -55,13 +55,14 @@ class RolesController extends Controller
      */
     public function store(RolesFormRequest $request)
     {
-        $role=new Role;
-        $role->name=$request->get('name');
-        $role->description=$request->get('description');
+
+        $role = new Role;
+        $role->name = $request->get('name');
+        $role->description = $request->get('description');
 
         $role->save();
 
-        return Redirect::to('role');
+        return Redirect::to('roles');
     }
 
     /**
@@ -83,9 +84,9 @@ class RolesController extends Controller
      */
     public function edit(Request $request, $id)
     {
-      //  $request->user()->authorizeRoles('admin');
+        //  $request->user()->authorizeRoles('admin');
 
-        return view("Role.edit",["role"=>Role::findOrFail($id)]);
+        return view("Roles.edit", ["role" => Role::findOrFail($id)]);
     }
 
     /**
@@ -97,13 +98,15 @@ class RolesController extends Controller
      */
     public function update(RolesFormRequest $request, $id)
     {
-        $role= Role::findOrFail($id);
-        $role->name=$request->get('name');
-        $role->description=$request->get('description');
+        //$request->user()->authorizeRoles('admin');
+
+        $role = Role::findOrFail($id);
+        $role->name = $request->get('name');
+        $role->description = $request->get('description');
 
         $role->update();
 
-        return Redirect::to('role');
+        return Redirect::to('roles');
     }
 
     /**
@@ -114,11 +117,11 @@ class RolesController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-        $request->user()->authorizeRoles('admin');
+        //$request->user()->authorizeRoles('admin');
 
-        $role=Role::findOrFail($id);
+        $role = Role::findOrFail($id);
         $role->delete();
 
-        return Redirect::to('role');
+        return Redirect::to('roles');
     }
 }

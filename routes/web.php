@@ -16,21 +16,16 @@ use Illuminate\Support\Facades\Auth;
 //Route::get('/', function () {
 //  return view('welcome');
 //});
-Route::get('ticket/{placa}/{id}/{valor}','TicketController@generarTicket')->name('ticket');
-Route::resource('ticket','TicketController');
+
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('tarifa', 'TarifaController');
 Route::get('/', function () {
     return view('auth/login');
 });
 
 
-
 Route::resource('user', 'UserController');
 
-
 Route::resource('roles', 'RolesController');
-
