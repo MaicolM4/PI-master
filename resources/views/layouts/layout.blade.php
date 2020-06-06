@@ -310,7 +310,7 @@ desired effect
             </a>
             <ul class="treeview-menu">
               <li><a href="{{url('user')}}">Administrar usuarios</a></li>
-              <li><a href="">Asignar Rol</a></li>
+              <li><a href="{{url('User_Role')}}">Asignar Rol</a></li>
               <li><a href="{{url('roles')}}">Administrar roles</a></li>
             </ul>
           </li>

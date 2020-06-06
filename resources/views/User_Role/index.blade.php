@@ -4,7 +4,7 @@
 
 <div class="row">
 	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-		<h3>Listado De Usuario Con Asignacion De Rol <a  href="usuario_role/create"><button class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Asignar Rol Al Usuario</button></a></h3>
+		<h3>Listado De Usuario Con Asignacion De Rol <a  href="User_Role/create"><button class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Asignar Rol Al Usuario</button></a></h3>
        	@include('User_Role.search')
 	</div>
 </div>

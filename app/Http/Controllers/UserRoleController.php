@@ -82,7 +82,7 @@ class UserRoleController extends Controller
         $user_role->user_id=$request->get('user_id');
         $user_role->save();
 
-        return Redirect::to('usuario_role');
+        return Redirect::to('User_Role');
     }
 
     /**
@@ -116,7 +116,12 @@ class UserRoleController extends Controller
      */
     public function update(UserRoleFormRequest $request, $id)
     {
-        //
+        $user_role=new UserRole;
+        $user_role->role_id=$request->get('role_id');
+        $user_role->user_id=$request->get('user_id');
+        $user_role->update();
+
+        return Redirect::to('User_Role');
     }
 
     /**
@@ -132,6 +137,6 @@ class UserRoleController extends Controller
         $user_role=UserRole::findOrFail($id);
         $user_role->delete();
 
-        return Redirect::to('usuario_role');
+        return Redirect::to('User_Role');
     }
 }

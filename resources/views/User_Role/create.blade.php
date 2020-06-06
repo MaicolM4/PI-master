@@ -15,14 +15,14 @@
             </div>
             @endif
 
-            {!! Form::open(array('url'=>'roles/create','method'=>'POST','autocomplete'=>'off'))!!}
+            {!! Form::open(array('url'=>'User_Role','method'=>'POST','autocomplete'=>'off'))!!}
             {{form::token()}}
             <div class="form-group">
                 <label for="User">USUARIOS</label>
                     <select name="user_id" id="user_id" class="form-control selectpicker" data-live-search="true" required>
                         <option value="">SELECCIONE EL USUARIO ASIGNAR ROL:</option>
                         @foreach($users as $user)
-                        <option value="{{$user->id}}">Nombre: {{ $user->name}} Email: {{ $user->email}}</option>
+                        <option value="{{$user->id}}"> {{ $user->name }} </option>
                         @endforeach
                     </select>
             </div>
@@ -38,7 +38,7 @@
             <div class="form-group">
                 <button class="btn btn-primary" type="submit">Guardar</button>
                 <button class="btn btn-danger" type="reset"><span class="glyphicon glyphicon-remove"></span> Borras Campos </button>
-                <a class="btn btn-info" type="reset" href="{{url('usuario_role')}}"><span class="glyphicon glyphicon-home"></span> Volver </a>
+                <a class="btn btn-info" type="reset" href="{{url('User_Role')}}"><span class="glyphicon glyphicon-home"></span> Volver </a>
             </div>
 
             {{Form::close()}}
