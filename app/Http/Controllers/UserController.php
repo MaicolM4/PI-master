@@ -23,16 +23,16 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-    //$request->user()->authorizeRoles('adminin');
-        if ($request)
-        {
-            $query=trim($request->get('searchText'));
-            $usuarios=DB::table('users')
-            ->where('name','LIKE','%'.$query.'%')
-            //->where('estado','=','Activo')
-            ->orderBy('id','desc')
-            ->paginate(10);
-            return view('User.index',["usuarios"=>$usuarios,"searchText"=>$query]);
+        //$request->user()->authorizeRoles('adminin');
+        $request->user()->authorizeRoles('admin');
+        if ($request) {
+            $query = trim($request->get('searchText'));
+            $usuarios = DB::table('users')
+                ->where('name', 'LIKE', '%' . $query . '%')
+                //->where('estado','=','Activo')
+                ->orderBy('id', 'desc')
+                ->paginate(10);
+            return view('User.index', ["usuarios" => $usuarios, "searchText" => $query]);
         }
     }
 
@@ -44,7 +44,7 @@ class UserController extends Controller
     public function create(Request $request)
     {
         //$request->user()->authorizeRoles('admin');
-        
+
         return view("User.create");
     }
 
@@ -56,15 +56,14 @@ class UserController extends Controller
      */
     public function store(UserFormRequest $request)
     {
-      $usuario=new User;
-      $usuario->name=$request->get('name');
-      $usuario->identification=$request->get('identification');
-      $usuario->email=$request->get('email');
-      $usuario->user=$request->get('user');
-      $usuario->password=bcrypt($request->get('password'));
-      $usuario->estado=$request->get('estado');
-      $usuario->save();
-      return Redirect::to('user');
+        $usuario = new User;
+        $usuario->name = $request->get('name');
+        $usuario->identification = $request->get('identification');
+        $usuario->email = $request->get('email');
+        $usuario->password = bcrypt($request->get('password'));
+        $usuario->estado = $request->get('estado');
+        $usuario->save();
+        return Redirect::to('user');
     }
 
     /**
@@ -88,7 +87,7 @@ class UserController extends Controller
     {
         //$request->user()->authorizeRoles('admin');
 
-        return view("User.edit",["usuario"=>User::findOrFail($id)]);
+        return view("User.edit", ["usuario" => User::findOrFail($id)]);
     }
 
     /**
@@ -100,11 +99,11 @@ class UserController extends Controller
      */
     public function update(UserFormRequest $request, $id)
     {
-        $usuario=User::findOrFail($id);
-        $usuario->name=$request->get('name');
-        $usuario->email=$request->get('email');
-        $usuario->password=bcrypt($request->get('password'));
-        $usuario->estado=$request->get('estado');
+        $usuario = User::findOrFail($id);
+        $usuario->name = $request->get('name');
+        $usuario->email = $request->get('email');
+        $usuario->password = bcrypt($request->get('password'));
+        $usuario->estado = $request->get('estado');
         $usuario->update();
         return Redirect::to('user');
     }
@@ -119,7 +118,7 @@ class UserController extends Controller
     {
         $request->user()->authorizeRoles('admin');
 
-        $usuario=User::findOrFail($id);
+        $usuario = User::findOrFail($id);
         $usuario->delete();
         return Redirect::to('user');
     }

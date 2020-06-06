@@ -19,9 +19,9 @@
         {{form::token()}}
 
         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-            <label for="name" class="col-md-4 control-label">Nombre</label>
+            <label for="name" class="col-md-4 control-label">Usuario</label>
             <div class="form-group">
-                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                <input id="name" type="text" class="form-control" name="name" value="" required autofocus>
                 @if ($errors->has('name'))
                 <span class="help-block"><strong>{{ $errors->first('name') }}</strong></span>
                 @endif
@@ -30,7 +30,7 @@
         <div class="form-group{{ $errors->has('identification') ? ' has-error' : '' }}">
             <label for="name" class="col-md-4 control-label">Identificación</label>
             <div class="form-group">
-                <input id="identification" type="text" class="form-control" name="identification" value="{{ old('identification') }}" required autofocus>
+                <input id="identification" type="text" class="form-control" name="identification" value=""  required autofocus>
                 @if ($errors->has('identification'))
                 <span class="help-block"><strong>{{ $errors->first('identification') }}</strong></span>
                 @endif
@@ -39,18 +39,9 @@
         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
             <label for="email" class="col-md-4 control-label">Correo Electrónico</label>
             <div class="form-group">
-                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                <input id="email" type="email" class="form-control" name="email" value="" required>
                 @if ($errors->has('email'))
                 <span class="help-block"><strong>{{ $errors->first('email') }}</strong></span>
-                @endif
-            </div>
-        </div>
-        <div class="form-group{{ $errors->has('user') ? ' has-error' : '' }}">
-            <label for="name" class="col-md-4 control-label">Usuario</label>
-            <div class="form-group">
-                <input id="user" type="text" class="form-control" name="user" value="{{ old('user') }}" required autofocus>
-                @if ($errors->has('user'))
-                <span class="help-block"><strong>{{ $errors->first('user') }}</strong></span>
                 @endif
             </div>
         </div>

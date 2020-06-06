@@ -62,6 +62,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
     #barraSuperior {
       background: #07406f !important;
     }
+
+    .header {
+      letter-spacing: 2px;
+      color: #ffffff  !important;
+      font-weight: bold;
+      font-size: 2em;
+      text-align: center;
+    }
   </style>
 </head>
 <!--
@@ -292,12 +300,22 @@ desired effect
 
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu" data-widget="tree">
-          <li class="header">HEADER</li>
+          <li class="header">OPCIONES</li>
           <!-- Optionally, you can add icons to the links -->
-          <li class="active"><a href="{{url('user')}}"><i class="fa fa-link"></i> <span>Administrar Usuarios</span></a></li>
-          <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Administrar Tarifas</span></a></li>
-          <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Consultar Reportes </span></a></li>
-          <li class="active"><a  href="{{url('roles')}}"><i class="fa fa-link"></i> <span>Roles </span></a></li>
+          <li class="treeview">
+            <a href="#"><i class="fa fa-address-book-o"></i> <span>Usuarios</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="{{url('user')}}">Administrar usuarios</a></li>
+              <li><a href="">Asignar Rol</a></li>
+              <li><a href="{{url('roles')}}">Administrar roles</a></li>
+            </ul>
+          </li>
+          <li class="active"><a href="#"><i class="fa fa-dollar"></i> <span>Administrar Tarifas</span></a></li>
+          <li class="active"><a href="#"><i class="fa fa-bar-chart"></i> <span>Consultar Reportes </span></a></li>
 
         </ul>
         <!-- /.sidebar-menu -->

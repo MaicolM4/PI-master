@@ -25,10 +25,10 @@ class UserFormRequest extends FormRequest
     {
         return [
             'name' => 'required|max:255',
-            'identification' => 'required|max:20',
+            'identification' => 'Integer|required',
             'email' => 'required|email|max:50',
-            'user' => 'required|max:50',
             'password' => 'required|min:6|max:255',
+            'estado' => 'required|Integer',
         ];
     }
 }

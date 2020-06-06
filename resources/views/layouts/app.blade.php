@@ -16,37 +16,93 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
     <style>
         body {
-            background: url("../fondos/FondoOpacidad20.png") repeat-x top;
+            background: #ffffff;
+            height: 500px;
+        }
+
+        #login-container {
+            width: 35%;
+            background: #ffffff;
+            margin-right: 180px;
+            margin-left: auto;
+            margin-top: 120px;
+            float: right;
+            border: 4px solid #083054;
+            border-radius: 20px !important;
+            padding: 50px 20px;
+            padding: 0;
+            height: 40em !important;
+        }
+
+        .imagen {
+            margin-top: 0px;
+            margin-left: 20%;
+            height: 100%;
+        }
+
+        #login-label {
+            text-align: center;
+            font-size: 2em;
+            font-family: 'Fredoka One', cursive !important;
+            color: #083054;
+            letter-spacing: 5px;
+            border: 4px solid #083054;
+            width: 400px !important;
+            margin-left: 100px;
+            margin-bottom: 50px;
+            margin-top: -46px;
+            background: white;
+            border-radius: 10px !important;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        input {
+            margin-bottom: 25px;
+            margin-left: 75px;
+            width: 350px !important;
+            text-align: left;
+            border-top: none !important;
+            border-right: none !important;
+            border-bottom: solid gray !important;
+            border-left: none !important;
+            height: 50px !important;
+        }
+
+        input::placeholder {
+            color: black !important;
+            opacity: 0.7555555 !important;
         }
 
         #login {
-            width: 500px;
-            margin: auto;
-            margin-top: 100px;
+            width: 350px;
+            height: 50px;
+            margin-left: 75px;
+            margin-top: 10px;
             background: white;
-            height: 500px;
-            margin-top: 0px;
-        }
-
-        #encabezadologin {
-            text-align: center;
+            border: 2px solid #083054;
             color: black;
-            font-weight: bold;
-            font-size: 2.5em;
-            margin-bottom: 0;
-            font-family: 'Raleway', sans-serif;
-            letter-spacing: 5px;
+            font-size: 2em;
+            padding-top: 0;
         }
 
-        #contenidologin {
-            padding-top: 100px;
-        }
-
-        #email:focus,
-        #password:focus,
-        #botonIngresar:hover {
-            background-color: green;
+        #login:hover {
             color: white;
+            background: #083054;
+            border-top: none !important;
+            border-right: none !important;
+            border-bottom: solid black !important;
+            border-left: none !important;
+        }
+
+
+        #email {
+            background: url('../fondos/iconuser.png') no-repeat center right;
+            background-size: 1.65em;
+        }
+
+        #password {
+            background: url('../fondos/iconpass.png') no-repeat center right;
         }
     </style>
 </head>

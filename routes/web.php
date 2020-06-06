@@ -18,7 +18,8 @@ use Illuminate\Support\Facades\Auth;
 //});
 Auth::routes();
 Route::get('/', function () {
-    return view('auth/login');
+        return view('auth/login');
+    
 });
 Route::resource('user', 'UserController');
 Route::get('/home', 'HomeController@index')->name('home');
