@@ -14,40 +14,44 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
     <style>
         body {
             background: #ffffff;
             height: 500px;
         }
 
+       
+
         #login-container {
             width: 35%;
             background: #ffffff;
             margin-right: 180px;
             margin-left: auto;
-            margin-top: 120px;
+            margin-top: 7%;
             float: right;
             border: 4px solid #083054;
             border-radius: 20px !important;
             padding: 50px 20px;
             padding: 0;
-            height: 40em !important;
+            height: 30em !important;
         }
 
         .imagen {
-            margin-top: 0px;
-            margin-left: 20%;
-            height: 100%;
+            margin-top: -20px !important;
+            margin-left: 15%;
+            width: 15%;
+            height: 50%;
         }
 
-        #login-label {
+        #encabezadologin {
             text-align: center;
             font-size: 2em;
             font-family: 'Fredoka One', cursive !important;
             color: #083054;
             letter-spacing: 5px;
             border: 4px solid #083054;
-            width: 400px !important;
+            width: 80% !important;
             margin-left: 100px;
             margin-bottom: 50px;
             margin-top: -46px;
@@ -59,8 +63,8 @@
 
         input {
             margin-bottom: 25px;
-            margin-left: 75px;
-            width: 350px !important;
+            margin-left: 8%;
+            width: 200%!important;
             text-align: left;
             border-top: none !important;
             border-right: none !important;
@@ -74,10 +78,11 @@
             opacity: 0.7555555 !important;
         }
 
+       
         #login {
             width: 350px;
             height: 50px;
-            margin-left: 75px;
+            margin-left: 12%;
             margin-top: 10px;
             background: white;
             border: 2px solid #083054;
@@ -136,8 +141,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                        <a href="{{ route('login') }}">Login</a></li>
-                       <li><a href="{{ route('register') }}">Register</a></li>
+                      
                         @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

@@ -18,13 +18,13 @@ use Illuminate\Support\Facades\Auth;
 //});
 Auth::routes();
 Route::get('/', function () {
-        return view('auth/login');
-    
+        return view('welcome');
 });
+Route::Auth();
+
 Route::resource('user', 'UserController');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('roles', 'RolesController');
-Route::resource('User_Role','UserRoleController');
+Route::resource('role_user', 'RoleUserController');
 
-Route::post('/roles/{role}', 'RolesController@index')->name('roles.index');

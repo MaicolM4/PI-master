@@ -15,7 +15,7 @@
             </div>
             @endif
 
-            {!! Form::open(array('url'=>'User_Role','method'=>'POST','autocomplete'=>'off'))!!}
+            {!! Form::open(array('url'=>'role_user','method'=>'POST','autocomplete'=>'off'))!!}
             {{form::token()}}
             <div class="form-group">
                 <label for="User">USUARIOS</label>

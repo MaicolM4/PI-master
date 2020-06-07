@@ -4,8 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class UserRole extends Model
+class RoleUser extends Model
 {
+
+    protected $table = 'role_user';
     public function users()
     {
         return $this
@@ -19,5 +21,4 @@ class UserRole extends Model
             ->belongsToMany('App\Role')
             ->withTimestamps();
     }
-
 }

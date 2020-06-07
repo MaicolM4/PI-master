@@ -47,7 +47,7 @@ class RolesController extends Controller
     {
   
         // $request->user()->authorizeRoles('admin');
-
+        
         return view('Roles.create');
     }
 

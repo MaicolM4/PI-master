@@ -8,7 +8,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Parqueadero VIDA: Inicio</title>
+  <title>Parqueadero VIDA</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="{{asset('/bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
@@ -65,7 +65,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     .header {
       letter-spacing: 2px;
-      color: #ffffff  !important;
+      color: #ffffff !important;
       font-weight: bold;
       font-size: 2em;
       text-align: center;
@@ -216,15 +216,22 @@ desired effect
                 <!-- The user image in the navbar-->
                 <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
                 <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                @if (Route::has('login'))
+                @if (Auth::check())
                 <span class="hidden-xs">{{ Auth::user()->name }}</span>
+                @endif
+                @endif
               </a>
               <ul class="dropdown-menu">
                 <!-- The user image in the menu -->
                 <li class="user-header">
                   <img src="{{asset('dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
 
-                  <p>
+                  <p>@if (Route::has('login'))
+                    @if (Auth::check())
                     {{ Auth::user()->name }}
+                    @endif
+                    @endif
                     <small>Member since Nov. 2012</small>
                   </p>
                 </li>
@@ -251,7 +258,7 @@ desired effect
                   <div class="pull-right">
                     <a href="{{ route('logout') }}" class="btn btn-default btn-flat" onclick="event.preventDefault();
                       document.getElementById('logout-form').submit();">
-                      Logout
+                      Cerrar sesión
                     </a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                       {{ csrf_field() }}
@@ -280,7 +287,11 @@ desired effect
             <img src="{{asset('/dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
           </div>
           <div class="pull-left info">
+            @if (Route::has('login'))
+            @if (Auth::check())
             <p>{{ Auth::user()->name }}</p>
+            @endif
+            @endif
             <!-- Status -->
             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
           </div>
@@ -310,7 +321,7 @@ desired effect
             </a>
             <ul class="treeview-menu">
               <li><a href="{{url('user')}}">Administrar usuarios</a></li>
-              <li><a href="{{url('User_Role')}}">Asignar Rol</a></li>
+              <li><a href="{{url('role_user/create')}}">Asignar Rol</a></li>
               <li><a href="{{url('roles')}}">Administrar roles</a></li>
             </ul>
           </li>
